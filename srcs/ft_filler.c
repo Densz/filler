@@ -6,74 +6,61 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/19 15:56:11 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/19 18:21:40 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-/*
-t_coor			ft_get_map(t_coor coor, char **line)
+
+void			ft_print_grid(char **grid)
 {
 	int			i;
-	char		*tmp;
 
 	i = 0;
-	if (*line[0] == ' ' && *line[1] == ' ' && *line[2] == ' ' && *line[3] == ' ')
+	while (grid[i])
 	{
-		coor.tab = ft_strnew(0);
-		coor.tab[0] = '\0';
-		get_next_line(0, line);
-		while (i < coor.tab_i)
-		{
-			tmp = coor.tab;
-			coor.tab = ft_strjoin(ft_strjoin(tmp, line[4]), "\n");
-			free(tmp);
-			get_next_line(0, line);
-			i++;
-		}
+		fprintf(stderr, "\033[33m%s\033[0m\n", grid[i]);
+		i++;
 	}
-	sleep(2);
-	return (coor);
-}
-*/
-t_coor			ft_get_data(t_coor coor, char *line)
-{
-	if ((ft_strchr(line, 'p')))
-	{
-		line = ft_strchr(line, 'p');
-		coor.player = ((ft_atoi(&line[1]) == 1) ? 'O' : 'X');
-	}
-	else if ((ft_strchr(line, 'P')))
-	{
-		if ((ft_strchr(line, 'l')))
-		{
-			line = ft_strchr(line, 'l');
-			coor.tab_i = ft_atoi(&line[6]);
-			coor.tab_j = ft_atoi(&line[9]);
-		}
-		else if ((ft_strchr(line, 'i')))
-		{
-			line = ft_strchr(line, 'i');
-			coor.pc_i = ft_atoi(&line[4]);
-			coor.pc_j = ft_atoi(&line[6]);
-		}
-	}
-	return (coor);
 }
 
 int				main(void)
 {
 	char		*line;
 	t_coor		coor;
+	int			i;
+	char		*tab;
+	char		*pc;
 
-	while (get_next_line(0, &line) != -1)
+	tab = ft_strnew(0);
+	tab[0] = '\0';
+	pc = ft_strnew(0);
+	pc[0] = '\0';
+	i = 0;
+	while (get_next_line(0, &line) > 0)
 	{
-		ft_putstr_fd("\033[36m", 2);
-		ft_putstr_fd(line, 2);
-		ft_putstr_fd("\n", 2);
-		ft_putstr_fd("\033[0m", 2);
-		coor = ft_get_data(coor, line);
-		sleep(2);
+		if (line[0] == '$' && line[1] == '$')
+			coor.player = ((ft_atoi(&line[9]) == 1) ? 'O' : 'X');
+		else if (line[0] == 'P' && line[1] == 'l')
+			coor = ft_get_tab_coor(coor, line);
+		else if (line[0] == 'P' && line[1] == 'i')
+			coor = ft_get_pc_coor(coor, line);
+		else if (ft_isdigit(line[0]) == 1)
+			tab = ft_get_tab(line, tab);
+		else if (line[0] == '.' || line[0] == '*')
+		{
+			pc = ft_get_pc(line, pc);
+			i++;
+		}
+		if (coor.pc_i == i && coor.pc_i != 0)
+		{
+			coor.pc = ft_strsplit(pc, '\n');
+			coor.tab = ft_strsplit(tab, '\n');
+			ft_print_grid(coor.pc);
+			ft_print_grid(coor.tab);
+			sleep(10);
+			break ;
+		}
 	}
 	return (0);
 }
