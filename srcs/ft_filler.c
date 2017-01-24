@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/19 19:16:30 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/20 13:47:21 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,13 @@ int				main(void)
 		coor = ft_check_line(coor, line, &tab, &pc);
 		if (i == 4 + coor.pc_i + coor.tab_i)
 		{
-			coor.pc = ft_strsplit(pc, '\n');
+			coor.pc.shape = ft_strsplit(pc, '\n');
 			coor.tab = ft_strsplit(tab, '\n');
+			ft_memdel((void **)&tab);
+			ft_memdel((void **)&pc);
+			coor = ft_get_star(coor);
+			ft_algo(coor);
 			i = 0;
-			sleep(1);
 			break ;
 		}
 	}

@@ -6,7 +6,7 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/01/19 17:59:49 by dzheng           ###   ########.fr        #
+#    Updated: 2017/01/20 13:47:28 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME = dzheng.filler
 FLAG = -Wall -Werror -Wextra
 LIB = ./ft_printf/libftprintf.a
 SRCS_NAME = ft_filler.c \
-			ft_get_data.c
+			ft_get_data.c \
+			ft_get_star.c \
+			ft_algo.c
 SRC_PATH = srcs/
 SRCS = $(addprefix $(SRC_PATH), $(SRCS_NAME))
 
