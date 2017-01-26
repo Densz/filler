@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/26 15:30:16 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/26 16:24:31 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ int			ft_checker(t_coor coor, int i, int j)
 	int		index;
 	int		x_decal;
 	int		y_decal;
+	int		error;
 
-	index = 1;
+	index = 0;
+	error = 0;
 	x_decal = j - coor.pc.stars_j[0];
 	y_decal = i - coor.pc.stars_i[0];
 	coor = ft_update_position(coor, y_decal, x_decal);
@@ -56,6 +58,11 @@ int			ft_checker(t_coor coor, int i, int j)
 		j = 0;
 		while (coor.map[i][j] && index < ft_count_stars(coor))
 		{
+			if (i == coor.pc.stars_i[index] && j == coor.pc.stars_j[index] && coor.map[i][j] == coor.id)
+			{
+				index++;
+				error++;
+			}
 			if (i == coor.pc.stars_i[index] && j == coor.pc.stars_j[index] && coor.map[i][j] == '.')
 				index++;
 			j++;
@@ -63,7 +70,7 @@ int			ft_checker(t_coor coor, int i, int j)
 		i++;
 	}
 	coor = ft_update_position_back(coor, y_decal, x_decal);
-	if (index == ft_count_stars(coor))
+	if (index == ft_count_stars(coor) && error == 1)
 		return (1);
 	return (0);
 }

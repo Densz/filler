@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/26 15:23:51 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/26 16:24:11 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int				main(void)
 
 	map = ft_strnew(0);
 	pc = ft_strnew(0);
-	while (get_next_line(0, &line) != -1)
+	while (get_next_line(0, &line) > 0)
 	{
 		coor = ft_check_line(coor, line, &pc, &map);
 		if (coor.done == 1)
