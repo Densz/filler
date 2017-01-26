@@ -6,20 +6,37 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/20 13:47:21 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/26 14:26:05 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-void			ft_print_grid(char **grid)
+/*
+** FONCTION A ENLEVER
+*/
+void			ft_print_coor_of_stars(t_coor coor)
 {
 	int			i;
 
 	i = 0;
-	while (grid[i])
+	fprintf(stderr, "Stars :\n");
+	while (i < ft_count_stars(coor))
 	{
-		fprintf(stderr, "\033[33m%s\033[0m\n", grid[i]);
+		fprintf(stderr, "%d. X = %i - Y = %i\n", i + 1, coor.pc.stars_j[i], coor.pc.stars_i[i]);
+		i++;
+	}
+}
+
+
+void			ft_print_grid(char **str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		fprintf(stderr, "\033[33m%s\n\033[0m", str[i]);
 		i++;
 	}
 }
@@ -27,29 +44,26 @@ void			ft_print_grid(char **grid)
 int				main(void)
 {
 	char		*line;
-	int			i;
 	t_coor		coor;
-	char		*tab;
+	char		*map;
 	char		*pc;
 
-	i = 0;
-	tab = ft_strdup("");
-	pc = ft_strdup("");
+	map = ft_strnew(0);
+	pc = ft_strnew(0);
 	while (get_next_line(0, &line) != -1)
 	{
-		i++;
-		coor = ft_check_line(coor, line, &tab, &pc);
-		if (i == 4 + coor.pc_i + coor.tab_i)
+		coor = ft_check_line(coor, line, &pc, &map);
+		if (coor.done == 1)
 		{
-			coor.pc.shape = ft_strsplit(pc, '\n');
-			coor.tab = ft_strsplit(tab, '\n');
-			ft_memdel((void **)&tab);
-			ft_memdel((void **)&pc);
-			coor = ft_get_star(coor);
-			ft_algo(coor);
-			i = 0;
-			break ;
+				coor.pc.shape = ft_strsplit(pc, '\n');
+				coor.map = ft_strsplit(map, '\n');
+				coor = ft_get_coor_stars(coor);
+				ft_algo(coor); //JEN SUIS ICI
+				map = ft_strnew(0);
+				pc = ft_strnew(0);
+				coor.done = 0;
 		}
 	}
+	sleep (1);
 	return (0);
 }

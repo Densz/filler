@@ -6,7 +6,7 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/01/20 13:47:28 by dzheng           ###   ########.fr        #
+#    Updated: 2017/01/26 10:38:42 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ FLAG = -Wall -Werror -Wextra
 LIB = ./ft_printf/libftprintf.a
 SRCS_NAME = ft_filler.c \
 			ft_get_data.c \
-			ft_get_star.c \
+			ft_get_coordinates.c \
 			ft_algo.c
 SRC_PATH = srcs/
 SRCS = $(addprefix $(SRC_PATH), $(SRCS_NAME))
@@ -37,7 +37,7 @@ $(NAME):
 exe:
 	@cc $(FLAG) $(SRCS) $(LIB) -o $(NAME)
 	@echo $(C_GREEN)"Compiling without flags" [ dzheng.filler ] $(SUCCESS)
-	./resources/filler_vm -f ./resources/maps/map00 -p1 ./resources/players/hcao.filler -p2 ./dzheng.filler
+	hilite ./resources/filler_vm -f ./resources/maps/map00 -p1 ./resources/players/hcao.filler -p2 ./dzheng.filler
 
 clean:
 	@make -C ./ft_printf/ clean

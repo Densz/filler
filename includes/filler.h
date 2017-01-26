@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/20 14:16:48 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/26 14:05:17 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,41 @@ typedef struct			s_pc
 	char				**shape;
 	int					x;
 	int					y;
+	int					pc_i; //TAILLE DE LA PIECE
+	int					pc_j;
+	int					*stars_i; //COORDONNEES DE LA PREMIERE ETOILE
+	int					*stars_j;
 }						t_pc;
 
 typedef struct 			s_coor
 {
-	char				player;
-	int					tab_i;
-	int					tab_j;
-	int					pc_i;
-	int					pc_j;
-	char				**tab;
+	char				id; //PLAYER
+	int					map_i; //TAILLE DE LA MAP
+	int					map_j;
+	char				**map; 
 	t_pc				pc;
+	int					done;
 }						t_coor;
 
-//GET DATA
-t_coor					ft_check_line(t_coor coor, char *line, char **tab, char **pc);
-t_coor					ft_get_tab_coor(t_coor coor, char *line);
+//GET_DATA.C
+t_coor					ft_get_map_coor(t_coor coor, char *line);
 t_coor					ft_get_pc_coor(t_coor coor, char *line);
-char					*ft_get_tab(char *line, char *tab);
+char					*ft_get_map(char *line, char *map);
 char					*ft_get_pc(char *line, char *pc);
+t_coor					ft_check_line(t_coor coor, char *line, char **pc, char **map);
 
-t_coor					ft_get_star(t_coor coor);
+//GET_COORDINATE.C
+t_coor					ft_get_coor_stars(t_coor coor);
+int						ft_count_stars(t_coor coor);
+/*int						ft_count_dots(t_coor coor);
+t_coor					ft_get_coor_dots(t_coor coor);*/
+
+//FILLER.C  /--> TO DELETE AT THE END
+void					ft_print_grid(char **str);
+void					ft_print_coor_of_stars(t_coor coor);
+void					ft_print_coor_of_dots(t_coor coor);
+
+//ALGO.C
 void					ft_algo(t_coor coor);
-int						ft_count_star(t_coor coor);
 
 #endif
