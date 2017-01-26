@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/26 14:26:05 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/26 15:23:51 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** FONCTION A ENLEVER
 */
-void			ft_print_coor_of_stars(t_coor coor)
+void			ft_print_coor_of_stars(t_coor coor, char *str)
 {
 	int			i;
 
@@ -23,7 +23,7 @@ void			ft_print_coor_of_stars(t_coor coor)
 	fprintf(stderr, "Stars :\n");
 	while (i < ft_count_stars(coor))
 	{
-		fprintf(stderr, "%d. X = %i - Y = %i\n", i + 1, coor.pc.stars_j[i], coor.pc.stars_i[i]);
+		fprintf(stderr, "%s\n%d. Y = %i  X = %i\n", str, i + 1, coor.pc.stars_i[i], coor.pc.stars_j[i]);
 		i++;
 	}
 }

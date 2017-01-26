@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/26 14:05:17 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/26 15:24:36 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_coor					ft_get_coor_dots(t_coor coor);*/
 
 //FILLER.C  /--> TO DELETE AT THE END
 void					ft_print_grid(char **str);
-void					ft_print_coor_of_stars(t_coor coor);
+void					ft_print_coor_of_stars(t_coor coor, char *str);
 void					ft_print_coor_of_dots(t_coor coor);
 
 //ALGO.C
