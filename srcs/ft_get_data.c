@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 17:59:26 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/26 14:08:33 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/26 16:48:10 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_coor		ft_check_line(t_coor coor, char *line, char **pc, char **map)
 	static int		compt = 0;
 
 	if (line[0] == '$' && line[1] == '$')
-		coor.id = ((ft_atoi(&line[9]) == 1) ? 'O' : 'X');
+		coor.id = ((ft_atoi(&line[10]) == 1) ? 'O' : 'X');
 	else if (line[0] == 'P' && line[1] == 'l')
 		coor = ft_get_map_coor(coor, line);
 	else if (line[0] == 'P' && line[1] == 'i')

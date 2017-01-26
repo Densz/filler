@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/26 16:24:31 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/26 16:43:15 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_coor		ft_update_position(t_coor coor, int y_decal, int x_decal) //CA MARCHE
 	return (coor);
 }
 
-int			ft_checker(t_coor coor, int i, int j)
+int			ft_checker(t_coor coor, int i, int j, int count)
 {
 	int		index;
 	int		x_decal;
@@ -49,8 +49,8 @@ int			ft_checker(t_coor coor, int i, int j)
 
 	index = 0;
 	error = 0;
-	x_decal = j - coor.pc.stars_j[0];
-	y_decal = i - coor.pc.stars_i[0];
+	x_decal = j - coor.pc.stars_j[count];
+	y_decal = i - coor.pc.stars_i[count];
 	coor = ft_update_position(coor, y_decal, x_decal);
 	i = 0;
 	while (coor.map[i])
@@ -79,6 +79,7 @@ void		ft_algo(t_coor coor)
 {
 	int		i;
 	int		j;
+	int		count;
 
 	i = 0;
 	while (coor.map[i])
@@ -87,11 +88,18 @@ void		ft_algo(t_coor coor)
 		while (coor.map[i][j])
 		{
 			if (coor.map[i][j] == coor.id)
-				if (ft_checker(coor, i, j) == 1)
-				{
-					ft_printf("%d %d\n", (i - coor.pc.stars_i[0]), (j - coor.pc.stars_j[0]));
-					return ;
-				}
+			{
+				count = 0;
+				while (count < ft_count_stars(coor))
+				{	
+					if (ft_checker(coor, i, j, count) == 1)
+					{
+						ft_printf("%d %d\n", (i - coor.pc.stars_i[count]), (j - coor.pc.stars_j[count]));
+						return ;
+					}
+					count++;
+				}				
+			}
 			j++;
 		}
 		i++;

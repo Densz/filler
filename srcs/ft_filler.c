@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/26 16:24:11 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/26 16:57:39 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,15 @@ int				main(void)
 		coor = ft_check_line(coor, line, &pc, &map);
 		if (coor.done == 1)
 		{
-				coor.pc.shape = ft_strsplit(pc, '\n');
-				coor.map = ft_strsplit(map, '\n');
-				coor = ft_get_coor_stars(coor);
-				ft_algo(coor); //JEN SUIS ICI
-				map = ft_strnew(0);
-				pc = ft_strnew(0);
-				coor.done = 0;
+			coor.pc.shape = ft_strsplit(pc, '\n');
+			coor.map = ft_strsplit(map, '\n');
+			coor = ft_get_coor_stars(coor);
+			ft_algo(coor); //JEN SUIS ICI
+			map = ft_strnew(0);
+			pc = ft_strnew(0);
+			coor.done = 0;
+			//sleep (1);
 		}
 	}
-	sleep (1);
 	return (0);
 }
