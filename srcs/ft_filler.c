@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/26 16:57:39 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/27 16:26:51 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void			ft_print_coor_of_stars(t_coor coor, char *str)
 		i++;
 	}
 }
-
 
 void			ft_print_grid(char **str)
 {
@@ -58,11 +57,11 @@ int				main(void)
 			coor.pc.shape = ft_strsplit(pc, '\n');
 			coor.map = ft_strsplit(map, '\n');
 			coor = ft_get_coor_stars(coor);
-			ft_algo(coor); //JEN SUIS ICI
+			ft_solve(coor);
+			coor.done = 0;
 			map = ft_strnew(0);
 			pc = ft_strnew(0);
-			coor.done = 0;
-			//sleep (1);
+			sleep (1);
 		}
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/26 15:24:36 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/01/27 16:12:49 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,12 @@ t_coor					ft_check_line(t_coor coor, char *line, char **pc, char **map);
 //GET_COORDINATE.C
 t_coor					ft_get_coor_stars(t_coor coor);
 int						ft_count_stars(t_coor coor);
-/*int						ft_count_dots(t_coor coor);
-t_coor					ft_get_coor_dots(t_coor coor);*/
+t_coor					ft_update_position_back(t_coor coor, int y_decal, int x_decal);
+t_coor					ft_update_position(t_coor coor, int y_decal, int x_decal);
+
+//FT_CHECKER.C
+int						ft_checker_map(t_coor coor);
+int						ft_checker(t_coor coor, int i, int j, int count);
 
 //FILLER.C  /--> TO DELETE AT THE END
 void					ft_print_grid(char **str);
@@ -56,6 +60,8 @@ void					ft_print_coor_of_stars(t_coor coor, char *str);
 void					ft_print_coor_of_dots(t_coor coor);
 
 //ALGO.C
-void					ft_algo(t_coor coor);
+void					ft_solve(t_coor coor);
+void					ft_fill_when_you_can(t_coor coor);
+void					ft_fill_on_top(t_coor coor);
 
 #endif
