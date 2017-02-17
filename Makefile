@@ -6,13 +6,13 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/01/27 16:13:20 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/17 14:34:08 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = dzheng.filler
 FLAG = -Wall -Werror -Wextra
-LIB = ./ft_printf/libftprintf.a
+LIB = ./libft/libft.a
 SRCS_NAME = ft_filler.c \
 			ft_get_data.c \
 			ft_get_coordinates.c \
@@ -33,20 +33,20 @@ SUCCESS			=	SUCCESS$(C_END)
 all: $(NAME)
 
 $(NAME): 
-	@make -C ./ft_printf/
+	@make -C ./libft/
 	@cc $(FLAG) $(SRCS) $(LIB) -o $(NAME)
 	@echo $(C_GREEN)"Compiling" [ dzheng.filler ] $(SUCCESS)
 
-exe:
+cc:
 	@cc $(FLAG) $(SRCS) $(LIB) -o $(NAME)
 	@echo $(C_GREEN)"Compiling without flags" [ dzheng.filler ] $(SUCCESS)
 	hilite ./resources/filler_vm -f ./resources/maps/map00 -p1 ./resources/players/carli.filler -p2 ./dzheng.filler
 
 clean:
-	@make -C ./ft_printf/ clean
+	@make -C ./libft/ clean
 
 fclean: clean
-	@#make -C ./ft_printf/ fclean
+	@make -C ./libft/ fclean
 
 re: fclean all
 
