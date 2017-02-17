@@ -6,39 +6,13 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/27 16:26:51 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/17 17:44:17 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-/*
-** FONCTION A ENLEVER
-*/
-void			ft_print_coor_of_stars(t_coor coor, char *str)
-{
-	int			i;
 
-	i = 0;
-	fprintf(stderr, "Stars :\n");
-	while (i < ft_count_stars(coor))
-	{
-		fprintf(stderr, "%s\n%d. Y = %i  X = %i\n", str, i + 1, coor.pc.stars_i[i], coor.pc.stars_j[i]);
-		i++;
-	}
-}
-
-void			ft_print_grid(char **str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		fprintf(stderr, "\033[33m%s\n\033[0m", str[i]);
-		i++;
-	}
-}
 
 int				main(void)
 {
@@ -64,5 +38,7 @@ int				main(void)
 			sleep (1);
 		}
 	}
+	free(map);
+	free(pc);
 	return (0);
 }

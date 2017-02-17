@@ -6,7 +6,7 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/02/17 14:34:08 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/17 17:22:49 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,12 @@ SRCS_NAME = ft_filler.c \
 			ft_get_coordinates.c \
 			ft_checker.c \
 			ft_fill_when_you_can.c \
-			ft_fill_on_top.c \
 			ft_solve.c
 SRC_PATH = srcs/
 SRCS = $(addprefix $(SRC_PATH), $(SRCS_NAME))
 
 #COLORS
-C_GREEN			=	"\033[33m"
+C_GREEN			=	"\033[32m"
 C_END			= 	"\033[0m"
 
 #MESSAGE
@@ -43,10 +42,11 @@ cc:
 	hilite ./resources/filler_vm -f ./resources/maps/map00 -p1 ./resources/players/carli.filler -p2 ./dzheng.filler
 
 clean:
-	@make -C ./libft/ clean
+	make -C ./libft/ clean
 
 fclean: clean
-	@make -C ./libft/ fclean
+	make -C ./libft/ fclean
+	/bin/rm -f $(NAME)
 
 re: fclean all
 

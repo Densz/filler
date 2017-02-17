@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/27 16:18:10 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/17 17:44:24 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void		ft_fill_when_you_can(t_coor coor) //PARSING AC *MAP
 	int		j;
 	int		count;
 
-	i = 0;
-	fprintf(stderr, "###   OU TU PEUX   #####\n");
-	while (coor.map[i])
+	i = -1;
+	fprintf(stderr, "###   ALLEEEZZ  NIQUE LE !!   #####\n");
+	while (coor.map[++i])
 	{
 		j = 0;
 		while (coor.map[i][j])
@@ -32,15 +32,14 @@ void		ft_fill_when_you_can(t_coor coor) //PARSING AC *MAP
 				{	
 					if (ft_checker(coor, i, j, count) == 1)
 					{
-						ft_printf("%d %d\n", (i - coor.pc.stars_i[count]), (j - coor.pc.stars_j[count]));
-						return ;
+						coor.x = i - coor.pc.stars_i[count];
+						coor.y = j - coor.pc.stars_j[count];			
 					}
 					count++;
 				}				
 			}
 			j++;
 		}
-		i++;
 	}
-	ft_printf("0 0\n");
+	ft_printf("%d %d\n", coor.x, coor.y);
 }

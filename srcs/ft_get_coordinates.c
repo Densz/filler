@@ -6,13 +6,13 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 10:45:16 by dzheng            #+#    #+#             */
-/*   Updated: 2017/01/27 16:54:58 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/17 17:05:03 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-t_coor		ft_update_position_back(t_coor coor, int y_decal, int x_decal) //CA MARCHE
+t_coor		ft_update_position_back(t_coor coor, int y_decal, int x_decal)
 {
 	int		index;
 
@@ -26,7 +26,7 @@ t_coor		ft_update_position_back(t_coor coor, int y_decal, int x_decal) //CA MARC
 	return (coor);
 }
 
-t_coor		ft_update_position(t_coor coor, int y_decal, int x_decal) //CA MARCHE
+t_coor		ft_update_position(t_coor coor, int y_decal, int x_decal)
 {
 	int		index;
 
