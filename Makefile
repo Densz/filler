@@ -6,7 +6,7 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/02/18 18:00:51 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/18 18:21:10 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,21 @@ cc:
 	-p1	./resources/players/carli.filler \
 	-p2 ./dzheng.filler | ./Show_Filler/show.filler
 
+##-------------------TODO-------------------##
+#SEGFAULT
+#./dzheng.filler
+#Piece [NO INFORMATION] after
+#Protection ac des Strlen ! if strlen de "piece " < piece [3 , 9]
+#Erreur de la VM et eviter le segfault
+
+##------------------Map 00------------------##
+## champely ==> Ne fait rien				##
+## superjeannot ==> You WIN					##
+## grati ==> You WIN EASY					##
+## abanlin ==> You WIN mais une 9/10		##
+## hcao ==> You WIN EASYY					##
+## carli ==> C'est tendu sur la map00		##
+
 clean:
 	make -C ./libft/ clean
 
@@ -54,16 +69,3 @@ re: fclean all
 
 .PHONY: all clean fclean re
 
-##-------------------TODO-------------------##
-
-#SEGFAULT
-#./dzheng.filler
-#Piece [NO INFORMATION] after
-
-##--------------- Map 00 ---------------##
-## champely ==> Ne fait rien			##
-## superjeannot ==> You WIN				##
-## grati ==> You WIN EASY				##
-## abanlin ==> You WIN mais une 9/10	##
-## hcao ==> You WIN EASYY				##
-## carli ==> C'est tendu sur la map00	##

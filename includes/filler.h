@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/18 14:06:13 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/18 18:07:52 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,6 @@ void					ft_update_position(t_coor coor, int y_decal,\
 //FT_CHECKER.C
 int						ft_checker_map(t_coor *coor);
 int						ft_checker(t_coor *coor, int i, int j, int count);
-
-//FILLER.C  /--> TO DELETE AT THE END
-void					ft_print_coor_of_stars(t_coor coor, char *str);
-void					ft_print_coor_of_dots(t_coor coor);
 
 //ALGO.C
 void					ft_solve(t_coor coor);
