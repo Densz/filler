@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/17 17:41:07 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/18 14:06:13 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct 			s_coor
 	int					map_j; //TAILLE DE LA MAP -X
 	char				**map; //MAP dans une str
 	t_pc				pc;
-	int					distance;
+	int					gap;
 	int					x; //coordonnees a print
 	int					y;
 	int					done; //Done with le parsing
@@ -50,14 +50,14 @@ t_coor					ft_check_line(t_coor coor, char *line, char **pc,\
 //GET_COORDINATE.C
 t_coor					ft_get_coor_stars(t_coor coor);
 int						ft_count_stars(t_coor coor);
-t_coor					ft_update_position_back(t_coor coor, int y_decal,\
+void					ft_update_position_back(t_coor coor, int y_decal,\
 						int x_decal);
-t_coor					ft_update_position(t_coor coor, int y_decal,\
+void					ft_update_position(t_coor coor, int y_decal,\
 						int x_decal);
 
 //FT_CHECKER.C
-int						ft_checker_map(t_coor coor);
-int						ft_checker(t_coor coor, int i, int j, int count);
+int						ft_checker_map(t_coor *coor);
+int						ft_checker(t_coor *coor, int i, int j, int count);
 
 //FILLER.C  /--> TO DELETE AT THE END
 void					ft_print_coor_of_stars(t_coor coor, char *str);
@@ -65,6 +65,6 @@ void					ft_print_coor_of_dots(t_coor coor);
 
 //ALGO.C
 void					ft_solve(t_coor coor);
-void					ft_fill_when_you_can(t_coor coor);
+t_coor					ft_fill_when_you_can(t_coor coor);
 
 #endif

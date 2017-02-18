@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 13:36:30 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/17 17:44:34 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/18 13:16:34 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void		ft_solve(t_coor coor)
 {
-	ft_fill_when_you_can(coor);
+	coor = ft_fill_when_you_can(coor);
+	ft_printf("%d %d\n", coor.x, coor.y);
 }

@@ -6,13 +6,11 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/17 17:44:17 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/18 13:06:22 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-
-
 
 int				main(void)
 {
@@ -23,6 +21,7 @@ int				main(void)
 
 	map = ft_strnew(0);
 	pc = ft_strnew(0);
+	ft_bzero(&coor, sizeof(t_coor));
 	while (get_next_line(0, &line) > 0)
 	{
 		coor = ft_check_line(coor, line, &pc, &map);
