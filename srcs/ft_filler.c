@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/18 13:06:22 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/18 14:45:00 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int				main(void)
 			coor.done = 0;
 			map = ft_strnew(0);
 			pc = ft_strnew(0);
-			sleep (1);
 		}
 	}
 	free(map);

@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:11:46 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/18 14:06:25 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/18 14:32:06 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,8 @@ int				ft_get_distance(t_coor coor, int gap, int stars)
 				{
 					gap_tmp = ft_abs(coor.pc.stars_i[index] - i) +\
 					ft_abs(coor.pc.stars_j[index] - j);
-					if (gap_tmp < gap)
-					{
+					if (gap_tmp < gap && gap_tmp >= 0)
 						gap = gap_tmp;
-						fprintf(stderr, "Distance %d\n", gap);
-					}
 					index++;
 				}
 			}
