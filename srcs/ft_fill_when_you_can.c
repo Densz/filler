@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/18 14:58:58 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/18 16:44:02 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_coor		ft_fill_when_you_can(t_coor coor)
 	int		gap;
 
 	i = -1;
-	gap = 9000000;
-	fprintf(stderr, "###   ALLEEEZZ    ###\n");
+	gap = 300;
+//	fprintf(stderr, "###  ALLEEEZZ BAISE LE  ###\n");
 	while (coor.map[++i])
 	{
 		j = 0;
@@ -29,7 +29,7 @@ t_coor		ft_fill_when_you_can(t_coor coor)
 		{
 			if (coor.map[i][j] == coor.id)
 			{
-				coor.gap = 9000000;
+				coor.gap = 300;
 				count = 0;
 				while (count < ft_count_stars(coor))
 				{	
@@ -48,11 +48,6 @@ t_coor		ft_fill_when_you_can(t_coor coor)
 			j++;
 		}
 	}
-	if (gap == 9000000)
-	{
-		coor.x = 0;
-		coor.y = 0;
-	}
-	fprintf(stderr, "Distance %d Player = %c\n", gap, coor.id);
+//	fprintf(stderr, "Distance %d Player = %c\n", gap, coor.id);
 	return (coor);
 }

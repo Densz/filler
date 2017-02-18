@@ -6,7 +6,7 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/02/18 15:02:37 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/18 18:00:51 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,9 @@ $(NAME):
 cc:
 	@cc $(FLAG) $(SRCS) $(LIB) -o $(NAME)
 	@echo $(C_GREEN)"Compiling without flags" [ dzheng.filler ] $(SUCCESS)
-	hilite ./resources/filler_vm -f ./resources/maps/map00 -p1 ./resources/players/carli.filler -p2 ./dzheng.filler
+	hilite ./resources/filler_vm -f ./resources/maps/map00 \
+	-p1	./resources/players/carli.filler \
+	-p2 ./dzheng.filler | ./Show_Filler/show.filler
 
 clean:
 	make -C ./libft/ clean
@@ -51,3 +53,17 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+##-------------------TODO-------------------##
+
+#SEGFAULT
+#./dzheng.filler
+#Piece [NO INFORMATION] after
+
+##--------------- Map 00 ---------------##
+## champely ==> Ne fait rien			##
+## superjeannot ==> You WIN				##
+## grati ==> You WIN EASY				##
+## abanlin ==> You WIN mais une 9/10	##
+## hcao ==> You WIN EASYY				##
+## carli ==> C'est tendu sur la map00	##
