@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:11:46 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 12:09:09 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 16:57:33 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,26 @@ void		ft_update_position(t_coor coor, int y_decal, int x_decal)
 
 int			ft_checker_map(t_coor *coor)
 {
+	int			index;
+	int			ovrlp;
 	int			i;
 	int			j;
-	int			index;
-	int			error;
 
 	index = 0;
-	error = 0;
-	//ft_count_stars_a_enregistrer_dans struc pour opt
+	ovrlp = 0;
 	while (index < ft_count_stars(*coor))
 	{
 		i = coor->pc.stars_i[index];
 		j = coor->pc.stars_j[index];
-		if (coor->map[i][j] == coor->id)
-		{
-			index++;
-			error++;
-		}
-		else if (coor->map[i][j] == '.')
-			index++;
-		else if (coor->map[i][j] != '.' && coor->map[i][j] != coor->id)
+		if (i < 0 || i >= coor->map_i || j < 0 || j >= coor->map_j)
 			return (0);
+		if (coor->map[i][j] == coor->id)
+			ovrlp++;
+		else if (coor->map[i][j] == (coor->id == 'X' ? 'O' : 'X') || ovrlp > 1)
+			return (0);
+		index++;
 	}
-	if (index == ft_count_stars(*coor) && error == 1)
+	if (index == ft_count_stars(*coor) && ovrlp == 1)
 		return (1);
 	return (0);
 }
@@ -78,8 +75,8 @@ int				ft_get_distance(t_coor coor, int gap, int stars)
 	gap_tmp = 0;
 	while (coor.map[++i])
 	{
-		j = 0;
-		while (coor.map[i][j])
+		j = -1;
+		while (coor.map[i][++j])
 		{
 			if (coor.map[i][j] != coor.id && coor.map[i][j] != '.')
 			{
@@ -93,7 +90,6 @@ int				ft_get_distance(t_coor coor, int gap, int stars)
 					index++;
 				}
 			}
-			j++;
 		}
 	}
 	return (gap);
@@ -105,12 +101,11 @@ int			ft_checker(t_coor *coor, int i, int j, int count)
 	int		y_decal;
 	int		ret;
 
-	ret = 0;
 	x_decal = j - coor->pc.stars_j[count];
 	y_decal = i - coor->pc.stars_i[count];
 	ft_update_position(*coor, y_decal, x_decal);
-	ret = ft_checker_map(coor);
-	coor->gap = ft_get_distance(*coor, coor->gap, ft_count_stars(*coor));
+	if ((ret = ft_checker_map(coor)))
+		coor->gap = ft_get_distance(*coor, coor->gap, ft_count_stars(*coor));
 	ft_update_position_back(*coor, y_decal, x_decal);
 	if (ret == 1)
 		return (1);

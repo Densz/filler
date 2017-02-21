@@ -6,7 +6,7 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/02/21 11:39:28 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/21 19:56:42 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,8 @@ $(NAME):
 cc:
 	@cc $(FLAG) $(SRCS) $(LIB) -o $(NAME)
 	@echo $(C_GREEN)"Compiling without flags" [ dzheng.filler ] $(SUCCESS)
-	hilite ./resources/filler_vm -f ./resources/maps/map02 \
-	-p1	./resources/players/carli.filler \
+	hilite ./resources/filler_vm -f ./resources/maps/map01 \
+	-p1	./resources/players/superjeannot.filler \
 	-p2 ./dzheng.filler | ./Show_Filler/show.filler
 
 ##-------------------TODO-------------------##
@@ -49,6 +49,9 @@ cc:
 #Piece [NO INFORMATION] after
 #Protection ac des Strlen ! if strlen de "piece " < piece [3 , 9]
 #Erreur de la VM et eviter le segfault
+
+##--------------------GRAPH-----------------##
+#| ./Show_Filler/show.filler
 
 ##------------------Map 00------------------##
 ## champely ==> Ne fait rien				##
