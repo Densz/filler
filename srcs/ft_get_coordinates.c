@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 10:45:16 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 19:57:05 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 20:12:12 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ t_coor		ft_get_coor_stars(t_coor coor)
 
 	i = 0;
 	coor_n = 0;
-	coor.pc.stars_i = (int *)malloc(sizeof(int) * ft_count_stars(coor));
-	coor.pc.stars_j = (int *)malloc(sizeof(int) * ft_count_stars(coor));
-	while (coor.pc.shape[i] && coor_n < ft_count_stars(coor))
+	coor.pc.cnt_stars = ft_count_stars(coor);
+	coor.pc.stars_i = (int *)malloc(sizeof(int) * coor.pc.cnt_stars);
+	coor.pc.stars_j = (int *)malloc(sizeof(int) * coor.pc.cnt_stars);
+	while (coor.pc.shape[i] && coor_n < coor.pc.cnt_stars)
 	{
 		j = 0;
-		while (coor.pc.shape[i][j] && coor_n < ft_count_stars(coor))
+		while (coor.pc.shape[i][j] && coor_n < coor.pc.cnt_stars)
 		{
 			if (coor.pc.shape[i][j] == '*')
 			{

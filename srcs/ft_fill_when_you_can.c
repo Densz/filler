@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 16:41:33 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 20:12:34 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_coor		ft_fill_when_you_can(t_coor coor)
 			{
 				coor.gap = 300;
 				count = 0;
-				while (count < ft_count_stars(coor))
+				while (count < coor.pc.cnt_stars)
 				{	
 					if (ft_checker(&coor, i, j, count) == 1 && coor.gap < gap)
 					{

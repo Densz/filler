@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 11:55:42 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 20:08:31 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@ typedef struct			s_pc
 	int					pc_j; //TAILLE DE LA PIECE -X
 	int					*stars_i; //COORDONNEES DE TOUTE LES ETOILES
 	int					*stars_j; //COORDONNEES DE TOUTE LES ETOILES
-
+	int					cnt_stars;
 }						t_pc;
+
+typedef struct 			s_strat
+{
+	int					is_below;
+	int					is_right;
+}						t_strat;
 
 typedef struct 			s_coor
 {
@@ -37,6 +43,7 @@ typedef struct 			s_coor
 	int					x; //coordonnees a print
 	int					y; //coordonnees a print
 	int					done; //Done with le parsing
+	int					count_turns;
 }						t_coor;
 
 //GET_DATA.C
