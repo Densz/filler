@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
+/*   By: Champi <Champi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 20:54:26 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 23:55:21 by Champi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,16 @@ typedef struct 			s_coor
 }						t_coor;
 
 //GET_DATA.C
-t_coor					ft_get_map_coor(t_coor coor, char *line);
-t_coor					ft_get_pc_coor(t_coor coor, char *line);
+void					ft_get_map_coor(t_coor *coor, char *line);
+void					ft_get_pc_coor(t_coor *coor, char *line);
 char					*ft_get_map(char *line, char *map);
 char					*ft_get_pc(char *line, char *pc);
-t_coor					ft_check_line(t_coor coor, char *line, char **pc,\
+void					ft_check_line(t_coor *coor, char *line, char **pc,\
 						char **map);
 
 //GET_COORDINATE.C
-t_coor					ft_get_coor_stars(t_coor coor);
-int						ft_count_stars(t_coor coor);
+void					ft_get_coor_stars(t_coor *coor);
+int						ft_count_stars(t_coor *coor);
 void					ft_update_position_back(t_coor coor, int y_decal,\
 						int x_decal);
 void					ft_update_position(t_coor coor, int y_decal,\
@@ -66,8 +66,8 @@ int						ft_checker_map(t_coor *coor);
 int						ft_checker(t_coor *coor, int i, int j, int count);
 
 //ALGO.C
-void					ft_solve(t_coor coor);
-t_coor					ft_surround_him(t_coor coor);
-t_coor					ft_fill_on_top(t_coor coor);
+void					ft_solve(t_coor *coor);
+void					ft_surround_him(t_coor *coor);
+void					ft_fill_on_top(t_coor *coor);
 
 #endif
