@@ -5,38 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/18 18:12:36 by dzheng           ###   ########.fr       */
+/*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
+/*   Updated: 2017/02/21 20:45:29 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-int				main(void)
+int			ft_not_surrounded(int i, int j, t_coor coor)
 {
-	char		*line;
-	t_coor		coor;
-	char		*map;
-	char		*pc;
+	if (i + 1 < coor.map_i)
+		if (coor.map[i + 1][j] == '.')
+			return (1);
+	if (i - 1 >= 0)
+		if (coor.map[i - 1][j] == '.')
+			return (1);
+	if (j + 1 >= 0)
+		if (coor.map[i][j + 1] == '.')
+			return (1);
+	if (j - 1 >= 0)
+		if (coor.map[i][j - 1] == '.')
+			return (1);
+	return (0);
+}
 
-	map = ft_strnew(0);
-	pc = ft_strnew(0);
-	ft_bzero(&coor, sizeof(t_coor));
-	while (get_next_line(0, &line) > 0)
+t_coor		ft_surround_him(t_coor coor)
+{
+	int		i;
+	int		j;
+	int		count;
+	int		gap;
+
+	i = -1;
+	gap = 300;
+	while (coor.map[++i])
 	{
-		coor = ft_check_line(coor, line, &pc, &map);
-		if (coor.done == 1)
+		j = -1;
+		while (coor.map[i][++j])
 		{
-			coor.pc.shape = ft_strsplit(pc, '\n');
-			coor.map = ft_strsplit(map, '\n');
-			coor = ft_get_coor_stars(coor);
-			ft_solve(coor);
-			coor.done = 0;
-			map = ft_strnew(0);
-			pc = ft_strnew(0);
+			if (coor.map[i][j] == coor.id && ft_not_surrounded(i, j, coor))
+			{
+				coor.gap = 300;
+				count = -1;
+				while (++count < coor.pc.cnt_stars)
+				{	
+					if (ft_checker(&coor, i, j, count) == 1 && coor.gap < gap)
+					{
+						coor.x = i - coor.pc.stars_i[count];
+						coor.y = j - coor.pc.stars_j[count];
+						gap = coor.gap;
+					}
+				}
+			}
 		}
 	}
-	free(map);
-	free(pc);
-	return (0);
+	return (coor);
 }

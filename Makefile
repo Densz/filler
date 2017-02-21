@@ -6,19 +6,19 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/02/21 20:15:55 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/21 20:46:45 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = dzheng.filler
 FLAG = -Wall -Werror -Wextra
 LIB = ./libft/libft.a
-SRCS_NAME = ft_filler.c \
-			ft_get_data.c \
-			ft_get_coordinates.c \
-			ft_checker.c \
-			ft_fill_when_you_can.c \
-			ft_solve.c
+SRCS_NAME = main.c \
+			ft_get_data_coor.c \
+			ft_get_data_pc.c \
+			ft_check_if_fit.c \
+			ft_filler.c \
+			ft_strat_print.c
 SRC_PATH = srcs/
 SRCS = $(addprefix $(SRC_PATH), $(SRCS_NAME))
 
@@ -41,7 +41,7 @@ cc:
 	@echo $(C_GREEN)"Compiling without flags" [ dzheng.filler ] $(SUCCESS)
 	hilite ./resources/filler_vm -f ./resources/maps/map01 \
 	-p1	./resources/players/carli.filler \
-	-p2 ./dzheng.filler
+	-p2 ./dzheng.filler | ./Show_Filler/show.filler
 
 ##-------------------TODO-------------------##
 #SEGFAULT

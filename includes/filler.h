@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 20:08:31 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 20:44:10 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct 			s_coor
 	int					x; //coordonnees a print
 	int					y; //coordonnees a print
 	int					done; //Done with le parsing
-	int					count_turns;
 }						t_coor;
 
 //GET_DATA.C
@@ -68,6 +67,6 @@ int						ft_checker(t_coor *coor, int i, int j, int count);
 
 //ALGO.C
 void					ft_solve(t_coor coor);
-t_coor					ft_fill_when_you_can(t_coor coor);
+t_coor					ft_surround_him(t_coor coor);
 
 #endif
