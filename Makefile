@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
+#    By: Champi <Champi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/02/21 20:57:37 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/21 23:24:19 by Champi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,9 @@ $(NAME):
 cc:
 	@cc $(FLAG) $(SRCS) $(LIB) -o $(NAME)
 	@echo $(C_GREEN)"Compiling without flags" [ dzheng.filler ] $(SUCCESS)
-	hilite ./resources/filler_vm -f ./resources/maps/map01 \
-	-p1	./resources/players/carli.filler \
-	-p2 ./dzheng.filler
+	./resources/filler_vm -f ./resources/maps/map02 \
+	-p2	./resources/players/carli.filler \
+	-p1 ./dzheng.filler
 
 ##-------------------TODO-------------------##
 #SEGFAULT

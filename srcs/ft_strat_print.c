@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strat_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
+/*   By: Champi <Champi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 13:36:30 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 21:02:11 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 23:18:29 by Champi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		ft_solve(t_coor coor)
 	static int		count_turns = 0;
 
 	count_turns++;
-	if (count_turns < 15)
+	if (count_turns < 40)
 	{
 		fprintf(stderr, "-- TOUJOURS PLUS HAUT --\n");
 		coor = ft_fill_on_top(coor);
@@ -29,3 +29,5 @@ void		ft_solve(t_coor coor)
 	}
 	ft_printf("%d %d\n", coor.x, coor.y);
 }
+
+//15 is good when x -> below O and map01

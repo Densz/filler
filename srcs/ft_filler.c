@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_filler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
+/*   By: Champi <Champi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 20:57:11 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 23:23:44 by Champi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_coor		ft_surround_him(t_coor coor)
 				count = -1;
 				while (++count < coor.pc.cnt_stars)
 				{	
-					if (ft_checker(&coor, i, j, count) == 1 && coor.gap < gap)
+					if (ft_checker(&coor, i, j, count) == 1 && coor.gap <= gap)
 					{
 						coor.x = i - coor.pc.stars_i[count];
 						coor.y = j - coor.pc.stars_j[count];
