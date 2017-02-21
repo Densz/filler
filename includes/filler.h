@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 20:44:10 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 20:54:26 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ int						ft_checker(t_coor *coor, int i, int j, int count);
 //ALGO.C
 void					ft_solve(t_coor coor);
 t_coor					ft_surround_him(t_coor coor);
+t_coor					ft_fill_on_top(t_coor coor);
 
 #endif
