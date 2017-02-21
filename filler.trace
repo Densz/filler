@@ -1,4 +1,6 @@
-seed = 4454
+seed = 6541
+X: error on input
+./dzheng.filler: Segfault at 166
 ./dzheng.filler won
 Score:
-62AGAINST118
+165AGAINST166

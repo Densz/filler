@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:11:46 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/18 14:32:06 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 12:09:09 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,27 @@ void		ft_update_position(t_coor coor, int y_decal, int x_decal)
 
 int			ft_checker_map(t_coor *coor)
 {
-	int		index;
-	int		error;
-	int		i;
-	int		j;
+	int			i;
+	int			j;
+	int			index;
+	int			error;
 
 	index = 0;
 	error = 0;
-	i = -1;
-	while (coor->map[++i])
+	//ft_count_stars_a_enregistrer_dans struc pour opt
+	while (index < ft_count_stars(*coor))
 	{
-		j = 0;
-		while (coor->map[i][j] && index < ft_count_stars(*coor))
+		i = coor->pc.stars_i[index];
+		j = coor->pc.stars_j[index];
+		if (coor->map[i][j] == coor->id)
 		{
-			if (i == coor->pc.stars_i[index] && j == coor->pc.stars_j[index]\
-			&& coor->map[i][j] == coor->id)
-			{
-				index++;
-				error++;
-			}
-			else if (i == coor->pc.stars_i[index] &&\
-			j == coor->pc.stars_j[index] && coor->map[i][j] == '.')
-				index++;
-			j++;
+			index++;
+			error++;
 		}
+		else if (coor->map[i][j] == '.')
+			index++;
+		else if (coor->map[i][j] != '.' && coor->map[i][j] != coor->id)
+			return (0);
 	}
 	if (index == ft_count_stars(*coor) && error == 1)
 		return (1);

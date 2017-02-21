@@ -6,11 +6,28 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/18 18:21:03 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 11:52:48 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
+
+int			ft_not_surrounded(int i, int j, t_coor coor)
+{
+	if (i + 1 < coor.map_i)
+		if (coor.map[i + 1][j] == '.')
+			return (1);
+	if (i - 1 >= 0)
+		if (coor.map[i - 1][j] == '.')
+			return (1);
+	if (j + 1 >= 0)
+		if (coor.map[i][j + 1] == '.')
+			return (1);
+	if (j - 1 >= 0)
+		if (coor.map[i][j - 1] == '.')
+			return (1);
+	return (0);
+}
 
 t_coor		ft_fill_when_you_can(t_coor coor)
 {
@@ -23,10 +40,10 @@ t_coor		ft_fill_when_you_can(t_coor coor)
 	gap = 300;
 	while (coor.map[++i])
 	{
-		j = 0;
-		while (coor.map[i][j++])
+		j = -1;
+		while (coor.map[i][++j])
 		{
-			if (coor.map[i][j] == coor.id)
+			if (coor.map[i][j] == coor.id && ft_not_surrounded(i, j, coor))
 			{
 				coor.gap = 300;
 				count = 0;

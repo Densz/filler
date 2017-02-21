@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/18 18:07:52 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/21 11:55:42 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ typedef struct 			s_coor
 	int					map_j; //TAILLE DE LA MAP -X
 	char				**map; //MAP dans une str
 	t_pc				pc;
-	int					gap;
+	int					gap; //DISTANCE ENTRE L'ADVERSAIRE
 	int					x; //coordonnees a print
-	int					y;
+	int					y; //coordonnees a print
 	int					done; //Done with le parsing
 }						t_coor;
 
