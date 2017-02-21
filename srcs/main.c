@@ -6,7 +6,7 @@
 /*   By: Champi <Champi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 23:56:07 by Champi           ###   ########.fr       */
+/*   Updated: 2017/02/22 00:02:29 by Champi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int				main(void)
 		{
 			coor->pc.shape = ft_strsplit(pc, '\n');
 			coor->map = ft_strsplit(map, '\n');
+			free(pc);
+			free(map);
 			ft_get_coor_stars(coor);
 			ft_solve(coor);
 			coor->done = 0;
