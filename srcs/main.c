@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 12:01:27 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/22 14:53:10 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,19 @@ int				main(void)
 		{
 			coor->pc.shape = ft_strsplit(pc, '\n');
 			coor->map = ft_strsplit(map, '\n');
-			free(pc);
-			free(map);
 			ft_get_coor_stars(coor);
 			ft_solve(coor);
+			free(map);
+			free(pc);
+			free(coor->pc.shape);
+			free(coor->map);
+			free(coor->pc.stars_i);
+			free(coor->pc.stars_j);
 			map = ft_strnew(0);
 			pc = ft_strnew(0);
 		}
+		if (line[0] == '=')
+			break;
 	}
 	free_filler(&map, &pc, &coor);
 	return (0);

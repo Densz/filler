@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 17:59:26 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 11:49:38 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/22 15:03:48 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void		ft_check_line(t_coor *coor, char *line, char **pc, char **map)
 {
 	static int		compt = 0;
 
-	if (line[0] == '$' && line[1] == '$')
+	if (line[0] == '$' && line[1] == '$' && ft_strlen(line) > 10)
 		coor->id = ((ft_atoi(&line[10]) == 1) ? 'O' : 'X');
-	else if (line[0] == 'P' && line[1] == 'l')
+	else if (line[0] == 'P' && line[1] == 'l' && ft_strlen(line) > 13)
 		ft_get_map_coor(coor, line);
-	else if (line[0] == 'P' && line[1] == 'i')
+	else if (line[0] == 'P' && line[1] == 'i' && ft_strlen(line) > 9)
 		ft_get_pc_coor(coor, line);
 	else if (ft_isdigit(line[0]) == 1)
 		*map = ft_get_map(line, *map);
@@ -55,7 +55,7 @@ char		*ft_get_map(char *line, char *map)
 	char	*tmp;
 
 	tmp = map;
-	map = ft_strjoin(ft_strjoin(tmp, &line[4]), "\n");
+	map = ft_strnjoin(3, tmp, &line[4], "\n");
 	ft_memdel((void **)&tmp);
 	return (map);
 }
@@ -65,7 +65,7 @@ char		*ft_get_pc(char *line, char *pc)
 	char	*tmp;
 
 	tmp = pc;
-	pc = ft_strjoin(ft_strjoin(tmp, line), "\n");
+	pc = ft_strnjoin(3, tmp, line, "\n");
 	ft_memdel((void **)&tmp);
 	return (pc);
 }
