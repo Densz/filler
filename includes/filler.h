@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Champi <Champi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 23:55:21 by Champi           ###   ########.fr       */
+/*   Updated: 2017/02/22 10:50:26 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct			s_pc
 typedef struct 			s_strat
 {
 	int					is_below;
-	int					is_right;
 }						t_strat;
 
 typedef struct 			s_coor
@@ -38,11 +37,12 @@ typedef struct 			s_coor
 	int					map_i; //TAILLE DE LA MAP -Y
 	int					map_j; //TAILLE DE LA MAP -X
 	char				**map; //MAP dans une str
-	t_pc				pc;
 	int					gap; //DISTANCE ENTRE L'ADVERSAIRE
 	int					x; //coordonnees a print
 	int					y; //coordonnees a print
 	int					done; //Done with le parsing
+	t_pc				pc;
+	t_strat				strat;
 }						t_coor;
 
 //GET_DATA.C

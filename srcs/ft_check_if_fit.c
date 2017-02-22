@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checker.c                                       :+:      :+:    :+:   */
+/*   ft_check_if_fit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:11:46 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 20:33:06 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/22 11:33:29 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_update_position_back(t_coor coor, int y_decal, int x_decal)
 {
-	int		index;
+	int			index;
 
 	index = 0;
 	while (index < coor.pc.cnt_stars)
@@ -27,7 +27,7 @@ void		ft_update_position_back(t_coor coor, int y_decal, int x_decal)
 
 void		ft_update_position(t_coor coor, int y_decal, int x_decal)
 {
-	int		index;
+	int			index;
 
 	index = 0;
 	while (index < coor.pc.cnt_stars)
@@ -64,15 +64,13 @@ int			ft_checker_map(t_coor *coor)
 	return (0);
 }
 
-int				ft_get_distance(t_coor coor, int gap, int stars)
+int				ft_distance(t_coor coor, int gap, int stars, int gap_tmp)
 {
 	int				index;
 	int				i;
 	int				j;
-	int				gap_tmp;
 
 	i = -1;
-	gap_tmp = 0;
 	while (coor.map[++i])
 	{
 		j = -1;
@@ -96,15 +94,17 @@ int				ft_get_distance(t_coor coor, int gap, int stars)
 
 int			ft_checker(t_coor *coor, int i, int j, int count)
 {
-	int		x_decal;
-	int		y_decal;
-	int		ret;
+	int			x_decal;
+	int			y_decal;
+	int			ret;
+	int			t_gap;
 
+	t_gap = 0;
 	x_decal = j - coor->pc.stars_j[count];
 	y_decal = i - coor->pc.stars_i[count];
 	ft_update_position(*coor, y_decal, x_decal);
 	if ((ret = ft_checker_map(coor)))
-		coor->gap = ft_get_distance(*coor, coor->gap, coor->pc.cnt_stars);
+		coor->gap = ft_distance(*coor, coor->gap, coor->pc.cnt_stars, t_gap);
 	ft_update_position_back(*coor, y_decal, x_decal);
 	if (ret == 1)
 		return (1);
