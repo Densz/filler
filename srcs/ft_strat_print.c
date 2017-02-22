@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 13:36:30 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 11:25:07 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/22 12:04:52 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	check_position(t_coor *coor)
 {
-	int			i;
-	int			j;
-	int			me;
-	int			him;
+	int				i;
+	int				j;
+	int				me;
+	int				him;
 
 	i = -1;
 	me = 0;
@@ -38,8 +38,8 @@ void	check_position(t_coor *coor)
 
 int		filled_on_top(t_coor *coor)
 {
-	int			i;
-	int			j;
+	int				i;
+	int				j;
 
 	i = -1;
 	while (coor->map[++i])
@@ -59,16 +59,23 @@ int		filled_on_top(t_coor *coor)
 	return (0);
 }
 
-void		ft_solve(t_coor *coor)
+void	ft_solve(t_coor *coor)
 {
 	static int		count_turns = 0;
+	int				i;
+	int				j;
+	int				count;
 
+	i = -1;
+	j = -1;
+	count = -1;
 	count_turns++;
 	if (count_turns == 1)
 		check_position(coor);
 	if (!filled_on_top(coor) && coor->strat.is_below == 1)
 		ft_fill_on_top(coor);
 	else
-		ft_surround_him(coor);
+		ft_surround_him(coor, i, j, count);
 	ft_printf("%d %d\n", coor->x, coor->y);
+	coor->done = 0;
 }

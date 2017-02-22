@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_filler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Champi <Champi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/21 23:52:14 by Champi           ###   ########.fr       */
+/*   Updated: 2017/02/22 12:05:09 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void			ft_fill_on_top(t_coor *coor)
 			{
 				count = coor->pc.cnt_stars;
 				while (--count >= 0)
-				{	
+				{
 					if (ft_checker(coor, i, j, count) == 1)
 					{
 						coor->x = i - coor->pc.stars_i[count];
@@ -58,14 +58,10 @@ void			ft_fill_on_top(t_coor *coor)
 	}
 }
 
-void		ft_surround_him(t_coor *coor)
+void			ft_surround_him(t_coor *coor, int i, int j, int count)
 {
-	int		i;
-	int		j;
-	int		count;
 	int		gap;
 
-	i = -1;
 	gap = 300;
 	while (coor->map[++i])
 	{
@@ -77,7 +73,7 @@ void		ft_surround_him(t_coor *coor)
 				coor->gap = 300;
 				count = -1;
 				while (++count < coor->pc.cnt_stars)
-				{	
+				{
 					if (ft_checker(coor, i, j, count) == 1 && coor->gap <= gap)
 					{
 						coor->x = i - coor->pc.stars_i[count];
@@ -89,4 +85,3 @@ void		ft_surround_him(t_coor *coor)
 		}
 	}
 }
-

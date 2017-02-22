@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Champi <Champi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 00:02:29 by Champi           ###   ########.fr       */
+/*   Updated: 2017/02/22 12:01:27 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
+
+void			free_filler(char **map, char **pc, t_coor **coor)
+{
+	ft_memdel((void **)map);
+	ft_memdel((void **)pc);
+	ft_memdel((void **)coor);
+}
 
 int				main(void)
 {
@@ -33,13 +40,10 @@ int				main(void)
 			free(map);
 			ft_get_coor_stars(coor);
 			ft_solve(coor);
-			coor->done = 0;
 			map = ft_strnew(0);
 			pc = ft_strnew(0);
 		}
 	}
-	free(map);
-	free(pc);
-	free(coor);
+	free_filler(&map, &pc, &coor);
 	return (0);
 }

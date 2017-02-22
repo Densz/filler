@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 16:11:46 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 11:33:29 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/22 11:48:51 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ int			ft_checker_map(t_coor *coor)
 	return (0);
 }
 
-int				ft_distance(t_coor coor, int gap, int stars, int gap_tmp)
+int			ft_distance(t_coor coor, int gap, int stars, int gap_tmp)
 {
-	int				index;
-	int				i;
-	int				j;
+	int			index;
+	int			i;
+	int			j;
 
 	i = -1;
 	while (coor.map[++i])
