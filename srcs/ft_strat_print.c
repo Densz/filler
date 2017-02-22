@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 13:36:30 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 12:04:52 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/22 19:21:19 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,12 @@ void	ft_solve(t_coor *coor)
 	count_turns++;
 	if (count_turns == 1)
 		check_position(coor);
-	if (!filled_on_top(coor) && coor->strat.is_below == 1)
+	if (!filled_on_top(coor) && coor->strat.is_below)
 		ft_fill_on_top(coor);
 	else
 		ft_surround_him(coor, i, j, count);
 	ft_printf("%d %d\n", coor->x, coor->y);
+	coor->x = 0;
+	coor->y = 0;
 	coor->done = 0;
 }
