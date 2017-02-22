@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 17:59:26 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 15:03:48 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/22 15:12:54 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		ft_check_line(t_coor *coor, char *line, char **pc, char **map)
 		ft_get_map_coor(coor, line);
 	else if (line[0] == 'P' && line[1] == 'i' && ft_strlen(line) > 9)
 		ft_get_pc_coor(coor, line);
-	else if (ft_isdigit(line[0]) == 1)
+	else if (ft_isdigit(line[0]) == 1 && ft_strlen(line) > 4)
 		*map = ft_get_map(line, *map);
 	else if (line[0] == '.' || line[0] == '*')
 	{
