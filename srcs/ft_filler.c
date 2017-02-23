@@ -6,11 +6,31 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 12:05:09 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 13:57:09 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
+
+int				get_the_lowest_middle_stars(t_coor *coor)
+{
+	int				count;
+	int				i_max;
+
+	count = -1;
+	i_max = 0;
+	while (++count < coor->pc.cnt_stars)
+	{
+		if (coor->pc.stars_i[count] > i_max)
+			i_max = coor->pc.stars_i[count];
+	}
+	count = coor->pc.cnt_stars - 1;
+	while (coor->pc.stars_i[count] == i_max)
+	{
+		count--;
+	}
+	return (count + 1);
+}
 
 static int		ft_not_surrounded(int i, int j, t_coor *coor)
 {
@@ -43,6 +63,33 @@ void			ft_fill_on_top(t_coor *coor)
 		{
 			if (coor->map[i][j] == coor->id && ft_not_surrounded(i, j, coor))
 			{
+				count = get_the_lowest_middle_stars(coor);
+				if (ft_checker(coor, i, j, count) == 1)
+				{
+					coor->x = i - coor->pc.stars_i[count];
+					coor->y = j - coor->pc.stars_j[count];
+					fprintf(stderr, "MIDDLE STAR\n");
+				}
+				return ;
+			}
+		}
+	}
+}
+
+void			ft_fill_on_top_as_possible(t_coor *coor)
+{
+	int		i;
+	int		j;
+	int		count;
+
+	i = -1;
+	while (coor->map[++i])
+	{
+		j = -1;
+		while (coor->map[i][++j])
+		{
+			if (coor->map[i][j] == coor->id && ft_not_surrounded(i, j, coor))
+			{
 				count = coor->pc.cnt_stars;
 				while (--count >= 0)
 				{
@@ -50,6 +97,7 @@ void			ft_fill_on_top(t_coor *coor)
 					{
 						coor->x = i - coor->pc.stars_i[count];
 						coor->y = j - coor->pc.stars_j[count];
+						fprintf(stderr, "GO TOP\n");
 						return ;
 					}
 				}

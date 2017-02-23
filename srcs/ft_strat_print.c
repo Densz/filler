@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 13:36:30 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 19:21:19 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 13:52:17 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_position(t_coor *coor)
 		j = -1;
 		while (coor->map[i][++j])
 		{
-			if (coor->map[i][j] != coor->id && coor->map[i][j] != '.')
+			if (coor->map[i][j] == (coor->id == 'X' ? 'O' : 'X'))
 				him = i;
 			if (coor->map[i][j] == coor->id)
 				me = i;
@@ -59,6 +59,35 @@ int		filled_on_top(t_coor *coor)
 	return (0);
 }
 
+void	check_if_you_can_go_up(t_coor *coor)
+{
+	int		i;
+	int		j;
+
+	i = -1;
+	j = -1;
+	while (coor->map[++i])
+	{
+		j = -1;
+		while (coor->map[i][++j])
+		{
+			if (coor->map[i][j] == coor->id)
+			{
+				while (coor->map[i][j++] == coor->id)
+				if (i - 1 > 0 && j - 1 > 0 && j < coor->map_j)
+				{
+					if (coor->map[i - 1][j - 1] == '.' ||\
+					coor->map[i - 1][j] == '.')
+						coor->strat.can_up = 0;
+					else
+						coor->strat.can_up = 1;
+				}
+				return ;
+			}
+		}
+	}
+}
+
 void	ft_solve(t_coor *coor)
 {
 	static int		count_turns = 0;
@@ -70,12 +99,21 @@ void	ft_solve(t_coor *coor)
 	j = -1;
 	count = -1;
 	count_turns++;
+	if (coor->strat.can_up == 0)
+		check_if_you_can_go_up(coor);
 	if (count_turns == 1)
 		check_position(coor);
-	if (!filled_on_top(coor) && coor->strat.is_below)
+	if (!filled_on_top(coor) && coor->strat.is_below && !coor->strat.can_up)
+	{
 		ft_fill_on_top(coor);
+		if (coor->x == 0 && coor->y == 0)
+			ft_fill_on_top_as_possible(coor);
+	}
 	else
+	{
+		fprintf(stderr, "COLLE LE\n");
 		ft_surround_him(coor, i, j, count);
+	}
 	ft_printf("%d %d\n", coor->x, coor->y);
 	coor->x = 0;
 	coor->y = 0;

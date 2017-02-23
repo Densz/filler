@@ -6,7 +6,7 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/02/22 18:58:12 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/23 14:43:08 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,27 +39,20 @@ $(NAME):
 cc:
 	@cc -g $(FLAG) $(SRCS) $(LIB) -o $(NAME)
 	@echo $(C_GREEN)"Compiling without flags" [ dzheng.filler ] $(SUCCESS)
-	hilite ./resources/filler_vm -f ./resources/maps/map01 \
-	-p1	./resources/players/hcao.filler \
-	-p2 ./dzheng.filler
-
-##-------------------TODO-------------------##
-#SEGFAULT
-#./dzheng.filler
-#Piece [NO INFORMATION] after
-#Protection ac des Strlen ! if strlen de "piece " < piece [3 , 9]
-#Erreur de la VM et eviter le segfault
+	hilite ./resources/filler_vm -f ./resources/maps/map02 \
+	-p1	./resources/players/carli.filler \
+	-p2 ./dzheng.filler | ./Show_Filler/show.filler
 
 ##--------------------GRAPH-----------------##
 #| ./Show_Filler/show.filler
 
-##------------------Map 00------------------##
-## champely ==> Ne fait rien				##
-## superjeannot ==> You WIN					##
-## grati ==> You WIN EASY					##
-## abanlin ==> You WIN mais une 9/10		##
-## hcao ==> You WIN EASYY					##
-## carli ==> C'est tendu sur la map00		##
+##--------------------Map 00--------------------##
+## champely ==> OK								##
+## grati ==> OK									##
+## abanlin ==> OK								##
+## hcao ==> OK									##
+## carli ==> 									##
+## superjeannot ==> OK							##
 
 clean:
 	make -C ./libft/ clean

@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:22:07 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 12:05:28 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 12:06:51 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct			s_pc
 typedef struct 			s_strat
 {
 	int					is_below;
+	int					can_up;
 }						t_strat;
 
 typedef struct 			s_coor
@@ -69,5 +70,6 @@ int						ft_checker(t_coor *coor, int i, int j, int count);
 void					ft_solve(t_coor *coor);
 void					ft_surround_him(t_coor *coor, int i, int j, int count);
 void					ft_fill_on_top(t_coor *coor);
+void					ft_fill_on_top_as_possible(t_coor *coor);
 
 #endif

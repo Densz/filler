@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/22 19:24:32 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 14:51:09 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				main(void)
 
 	map = ft_strnew(0);
 	pc = ft_strnew(0);
-	coor = (t_coor *)malloc(sizeof(t_coor));
+	coor = ft_memalloc(sizeof(t_coor));
 	while (get_next_line(0, &line) > 0)
 	{
 		ft_check_line(coor, line, &pc, &map);
@@ -46,11 +46,11 @@ int				main(void)
 			free(coor->pc.stars_j);
 			map = ft_strnew(0);
 			pc = ft_strnew(0);
+			free(line);
 		}
 		if (line[0] == '=')
 			break ;
 	}
-	free(line);
 	free_filler(&map, &pc, &coor);
 	return (0);
 }
