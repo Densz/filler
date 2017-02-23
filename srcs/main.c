@@ -6,11 +6,25 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/23 14:51:09 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 15:14:25 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
+
+void			free_tab(char **str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	str = NULL;
+}
 
 void			free_filler(char **map, char **pc, t_coor **coor)
 {
@@ -40,17 +54,18 @@ int				main(void)
 			ft_solve(coor);
 			free(map);
 			free(pc);
-			free(coor->pc.shape);
-			free(coor->map);
+			free_tab(coor->pc.shape);
+			free_tab(coor->map);
 			free(coor->pc.stars_i);
 			free(coor->pc.stars_j);
 			map = ft_strnew(0);
 			pc = ft_strnew(0);
-			free(line);
 		}
 		if (line[0] == '=')
 			break ;
+		ft_memdel((void**)&line);
 	}
+	ft_memdel((void**)&line);
 	free_filler(&map, &pc, &coor);
 	return (0);
 }

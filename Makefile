@@ -6,7 +6,7 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/02/23 14:43:08 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/23 14:57:37 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,9 @@ $(NAME):
 cc:
 	@cc -g $(FLAG) $(SRCS) $(LIB) -o $(NAME)
 	@echo $(C_GREEN)"Compiling without flags" [ dzheng.filler ] $(SUCCESS)
-	hilite ./resources/filler_vm -f ./resources/maps/map02 \
+	hilite ./resources/filler_vm -f ./resources/maps/map00 \
 	-p1	./resources/players/carli.filler \
-	-p2 ./dzheng.filler | ./Show_Filler/show.filler
+	-p2 ./dzheng.filler
 
 ##--------------------GRAPH-----------------##
 #| ./Show_Filler/show.filler
