@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/23 19:18:56 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 19:39:07 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void			ft_fill_on_top(t_coor *coor)
 				{
 					coor->x = i - coor->pc.stars_i[count];
 					coor->y = j - coor->pc.stars_j[count];
-					fprintf(stderr, "MIDDLE STAR\n");
 				}
 				return ;
 			}

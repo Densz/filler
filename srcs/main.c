@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/23 17:42:45 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 19:39:39 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ int				main(void)
 			map = ft_strnew(0);
 			pc = ft_strnew(0);
 		}
-		if (line[0] == '=')
-			break ;
 		ft_memdel((void **)&line);
 	}
 	ft_memdel((void **)&line);
