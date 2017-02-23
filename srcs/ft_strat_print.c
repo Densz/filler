@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 13:36:30 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/23 13:52:17 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 17:25:42 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,11 @@ void	check_if_you_can_go_up(t_coor *coor)
 			if (coor->map[i][j] == coor->id)
 			{
 				while (coor->map[i][j++] == coor->id)
+					;
 				if (i - 1 > 0 && j - 1 > 0 && j < coor->map_j)
 				{
-					if (coor->map[i - 1][j - 1] == '.' ||\
-					coor->map[i - 1][j] == '.')
-						coor->strat.can_up = 0;
-					else
+					if (coor->map[i - 1][j - 1] != '.' ||\
+					coor->map[i - 1][j] != '.')
 						coor->strat.can_up = 1;
 				}
 				return ;
@@ -110,10 +109,7 @@ void	ft_solve(t_coor *coor)
 			ft_fill_on_top_as_possible(coor);
 	}
 	else
-	{
-		fprintf(stderr, "COLLE LE\n");
 		ft_surround_him(coor, i, j, count);
-	}
 	ft_printf("%d %d\n", coor->x, coor->y);
 	coor->x = 0;
 	coor->y = 0;

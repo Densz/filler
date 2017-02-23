@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/23 13:57:09 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 17:25:52 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void			ft_fill_on_top_as_possible(t_coor *coor)
 					{
 						coor->x = i - coor->pc.stars_i[count];
 						coor->y = j - coor->pc.stars_j[count];
-						fprintf(stderr, "GO TOP\n");
 						return ;
 					}
 				}
