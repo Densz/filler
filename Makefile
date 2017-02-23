@@ -6,7 +6,7 @@
 #    By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 16:11:46 by dzheng            #+#    #+#              #
-#    Updated: 2017/02/23 17:35:10 by dzheng           ###   ########.fr        #
+#    Updated: 2017/02/23 19:35:13 by dzheng           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,10 @@ $(NAME):
 cc:
 	@cc -g $(FLAG) $(SRCS) $(LIB) -o $(NAME)
 	@echo $(C_GREEN)"Compiling without flags" [ dzheng.filler ] $(SUCCESS)
-	./resources/filler_vm -f ./resources/maps/map01 \
-	-p1	./resources/players/carli.filler \
-	-p2 ./dzheng.filler
+	./resources/filler_vm -f ./resources/maps/map02 \
+	-p1 ./dzheng.filler \
+	-p2	./resources/players/superjeannot.filler
+	
 
 ##--------------------GRAPH-----------------##
 #| ./Show_Filler/show.filler
@@ -51,7 +52,7 @@ cc:
 ## grati ==> OK									##
 ## abanlin ==> OK								##
 ## hcao ==> OK									##
-## carli ==> 									##
+## carli ==> OK									##
 ## superjeannot ==> OK							##
 
 clean:

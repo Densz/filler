@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 13:47:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/23 17:25:52 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/23 19:18:56 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,18 @@ static int		ft_not_surrounded(int i, int j, t_coor *coor)
 			return (1);
 	if (j - 1 >= 0)
 		if (coor->map[i][j - 1] == '.')
+			return (1);
+	if (i + 1 < coor->map_i && j - 1 >= 0)
+		if (coor->map[i + 1][j - 1] == '.')
+			return (1);
+	if (i + 1 < coor->map_i && j + 1 < coor->map_j)
+		if (coor->map[i + 1][j + 1] == '.')
+			return (1);
+	if (i - 1 >= 0 && j - 1 >= 0)
+		if (coor->map[i - 1][j - 1] == '.')
+			return (1);
+	if (i - 1 >= 0 && j + 1 < coor->map_j)
+		if (coor->map[i - 1][j + 1] == '.')
 			return (1);
 	return (0);
 }
