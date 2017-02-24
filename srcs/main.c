@@ -6,7 +6,7 @@
 /*   By: dzheng <dzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:18:03 by dzheng            #+#    #+#             */
-/*   Updated: 2017/02/23 19:39:39 by dzheng           ###   ########.fr       */
+/*   Updated: 2017/02/24 13:16:54 by dzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void			free_filler(char **map, char **pc, t_coor **coor)
 	ft_memdel((void **)coor);
 }
 
-void			parsing_done(t_coor *coor, char *map, char *pc)
+void			parsing_done(t_coor *coor, char **map, char **pc)
 {
-	coor->pc.shape = ft_strsplit(pc, '\n');
-	coor->map = ft_strsplit(map, '\n');
+	coor->pc.shape = ft_strsplit(*pc, '\n');
+	coor->map = ft_strsplit(*map, '\n');
 	ft_get_coor_stars(coor);
 	ft_solve(coor);
-	free(map);
-	free(pc);
+	ft_memdel((void**)map);
+	ft_memdel((void**)pc);
 	free_tab(coor->pc.shape);
 	free_tab(coor->map);
 	free(coor->pc.stars_i);
@@ -61,7 +61,7 @@ int				main(void)
 		ft_check_line(coor, line, &pc, &map);
 		if (coor->done == 1)
 		{
-			parsing_done(coor, map, pc);
+			parsing_done(coor, &map, &pc);
 			map = ft_strnew(0);
 			pc = ft_strnew(0);
 		}
